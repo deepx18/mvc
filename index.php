@@ -1,14 +1,11 @@
 <?php
 require_once 'modules/Router.php';
 
+$route = str_replace('/mvc', '', $_SERVER['REQUEST_URI']);
+
+require_once 'routes/config.php';
 
 use App\Modules\Router;
 
-$route = str_replace('/mvc', '', $_SERVER['REQUEST_URI']);
-
-Router::get('/users', function () {
-    return '<h1>The /users route.</h1>';
-});
-
-
+Router::init();
 Router::route($route);
